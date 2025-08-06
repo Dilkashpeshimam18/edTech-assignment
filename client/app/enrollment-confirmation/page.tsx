@@ -1,4 +1,5 @@
 'use client';
+
 import { useRouter, useParams ,useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
