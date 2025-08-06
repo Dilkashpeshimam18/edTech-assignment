@@ -5,7 +5,7 @@
   "scripts": {
     "seed": "ts-node ./prisma/seed.ts",
     "dev": "ts-node ./server.ts",
-    "build": "tsc && npx prisma generate",
+    "build": "tsc && npx --yes prisma generate",
     "start": "node dist/server.js"
   },
   "keywords": [],
