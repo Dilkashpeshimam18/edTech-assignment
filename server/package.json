@@ -5,8 +5,10 @@
   "scripts": {
     "seed": "ts-node ./prisma/seed.ts",
     "dev": "ts-node ./server.ts",
-    "build": "tsc && npx --yes prisma generate",
-    "start": "node dist/server.js"
+    "build": "tsc",
+    "start": "node dist/server.js",
+      "postinstall": "npx prisma generate"
+
   },
   "keywords": [],
   "author": "",
