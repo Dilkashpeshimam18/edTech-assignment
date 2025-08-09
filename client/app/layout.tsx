@@ -4,7 +4,8 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { AuthProvider } from '@/context/AuthContext';
 import { EnrollmentProvider } from '@/context/EnrollmentContext';
-
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -28,8 +29,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        
+
         <AuthProvider>
-          <EnrollmentProvider>{children}</EnrollmentProvider>
+          <EnrollmentProvider>
+            <Header />
+            {children}</EnrollmentProvider>
+            <Footer />
         </AuthProvider>
       </body>
     </html>

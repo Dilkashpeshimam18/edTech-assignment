@@ -124,15 +124,7 @@ async function main() {
     },
   });
 
-  const course12 = await prisma.course.upsert({
-    where: { title: 'Authentication in Web Apps' },
-    update: {},
-    create: {
-      title: 'Authentication in Web Apps',
-      description: 'Implement secure authentication and authorization in web apps.',
-      level: CourseLevel.INTERMEDIATE,
-    },
-  });
+
 
   await prisma.enrollment.upsert({
     where: {

@@ -1,0 +1,128 @@
+.enrollment-confirmation {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #f9f9fb;
+  font-family: Arial, sans-serif;
+  gap: 40px;
+}
+
+/* Left Side */
+.confirmation-left {
+  flex: 1;
+  margin-top: 70px;
+}
+
+.confirmation-logo {
+  font-size: 50px;
+  color: #2874f0;
+  font-weight: bold;
+}
+
+.confirmation-title {
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.confirmation-message {
+  font-size: 16px;
+  color: #555;
+  margin-top: 16px;
+  max-width: 400px;
+}
+
+.confirmation-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  height: 50px;
+    width: 160px;
+}
+
+.btn-primary:hover {
+  background-color: #1e5ec7;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #333;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Right Side */
+.confirmation-right {
+  flex: 1;
+  padding: 40px;
+}
+
+.amount-card {
+  background-color: white;
+  padding: 40px;
+  border-radius: 12px;
+  /* text-align: center; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.amount-card h2 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.amount-card p {
+  color: #777;
+  font-size: 14px;
+}
+
+.check-icon {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+      background-color: #f4f81a;
+    color: #141403;
+  border-radius: 50%;
+  padding: 17px;
+  font-size: 16px;
+}
+
+/* Payment Details */
+.payment-details {
+  background-color: white;
+  margin-top: 20px;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.payment-details h3 {
+  margin-bottom: 15px;
+}
+
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.details-row .bold {
+  font-weight: bold;
+}
+
+.status-success {
+  color: #1abc9c;
+  font-weight: bold;
+}

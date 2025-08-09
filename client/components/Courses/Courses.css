@@ -1,0 +1,76 @@
+/* CoursesPage.css */
+
+.courses {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: #111827;
+  padding: 40px 80px;
+}
+
+.courses-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-label {
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 9999px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-bottom: 10px;
+  cursor: default;
+}
+
+.courses-header h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.courses-header p {
+  font-size: 14px;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.filter-buttons button {
+  border: none;
+  background-color: #f3f4f6;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filter-buttons button:hover {
+  background-color: #e5e7eb;
+}
+
+.filter-buttons .active {
+  background-color: #111827;
+  color: white;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  margin-left: 50px;
+}
+

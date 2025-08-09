@@ -54,11 +54,11 @@ export default function EditCoursePage() {
       .finally(() => setLoading(false));
   }, [id, user, router]);
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  if (!user || !id) return;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!user || !id) return;
 
-  const mutation = `
+    const mutation = `
     mutation EditCourse($id: ID!, $title: String, $description: String, $level: CourseLevel, $userId: ID!) {
       editCourse(id: $id, title: $title, description: $description, level: $level, userId: $userId) {
         id
@@ -69,52 +69,57 @@ const handleSubmit = async (e: React.FormEvent) => {
     }
   `;
 
-  try {
-    await graphqlFetch(
-      mutation,
-      { id, title, description, level, userId: user.id },
-      user
-    );
-    alert('Course update successfully!')
-    // router.push(`/course-details/${id}`);
-  } catch (err) {
-    setError(String(err));
-  }
-};
-
+    try {
+      await graphqlFetch(mutation, { id, title, description, level, userId: user.id }, user);
+      alert('Course update successfully!');
+      // router.push(`/course-details/${id}`);
+    } catch (err) {
+      setError(String(err));
+    }
+  };
 
   if (loading) return <p>Loading course data...</p>;
   if (!course) return <p>Course not found.</p>;
 
   return (
-    <div className="edit-course-container" style={{ padding: '2rem' }}>
-      <h2>Edit Course</h2>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
-        <label>
-          Title:
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} required />
-        </label>
+    <div className="edit-course-wrapper">
+      <div className="edit-course-left">
+        <h2>Edit Course</h2>
+        <p>Make changes to your course title, description, and materials to keep it fresh and engaging.</p>
 
-        <label>
-          Description:
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
-        </label>
+        <img src="/edit_course.png" alt="Login Illustration" />
+      </div>
+      <div className="edit-course-right">
+        <form className="edit-form" onSubmit={handleSubmit}>
+          <label htmlFor="title">Title:</label>
+          <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} required />
 
-        <label>
-          Level:
-          <select value={level} onChange={(e) => setLevel(e.target.value as any)} required>
+          <label style={{ marginTop: '15px' }} htmlFor="description">
+            Description:
+          </label>
+          <textarea id="description" value={description} onChange={(e) => setDescription(e.target.value)} required />
+
+          <label style={{ marginTop: '15px' }} htmlFor="level">
+            Level:
+          </label>
+          <select
+            id="level"
+            value={level}
+            onChange={(e) => setLevel(e.target.value as 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED')}
+            required
+          >
             <option value="BEGINNER">Beginner</option>
             <option value="INTERMEDIATE">Intermediate</option>
             <option value="ADVANCED">Advanced</option>
           </select>
-        </label>
 
-        <button type="submit" style={{ marginTop: '1rem' }}>
-          Save Changes
-        </button>
-      </form>
+          <button type="submit" className="submit-btn">
+            Save Changes
+          </button>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+          {error && <p className="error-message">{error}</p>}
+        </form>
+      </div>
     </div>
   );
 }
